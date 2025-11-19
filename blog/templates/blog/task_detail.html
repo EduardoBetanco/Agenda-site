@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <article class="task">
+        <time class="date">
+            {{ task.due_date }}
+        </time>
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description|linebreaksbr }}</p>
+    </article>
+{% endblock %}

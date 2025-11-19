@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Agenda Eduardo</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Agenda Eduardo WEBA</a></h1>
-        </header>
+{% extends 'blog/base.html' %}
 
-        {% for task in tasks %}
-
-            <article>
-
-                <time>Due date: {{ task.due_date }}</time>
-                <h2><a href="">{{ task.title }}</a></h2>
-                <p>{{ task.description|linebreaksbr }}</p>
-
-            </article>
-
-        {% endfor %}
-
-    </body>
-</html>
+{% block content%}
+    {% for task in tasks %}
+        <article class="task">
+            <time class="date">
+                {{ task.due_date }}
+            </time>
+            <h2><a href="{% url 'task_detail' pk=task.pk %}">{{ task.title }}</a></h2>
+            <p>{{ task.description|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock%}
