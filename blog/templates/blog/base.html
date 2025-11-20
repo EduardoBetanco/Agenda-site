@@ -13,7 +13,12 @@
     <body>
         <header class="page-header">
             <div class="container">
-                <h1><a href="/">Django Girls Blog</a></h1>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'task_new' %}" class="top-menu">
+                        {% include './icons/file-earmark-plus.svg' %}
+                    </a>
+                {% endif %}
+                <h1><a href="/">Agenda Eduardo</a></h1>
             </div>
     </header>
     <main class="container">

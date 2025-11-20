@@ -2,6 +2,13 @@
 
 {% block content %}
     <article class="task">
+        <aside class="actions">
+            {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'task_edit' pk=task.pk %}">
+                    {% include './icons/pencil-fill.svg' %}
+                </a>
+{% endif %}
+        </aside>
         <time class="date">
             {{ task.due_date }}
         </time>
