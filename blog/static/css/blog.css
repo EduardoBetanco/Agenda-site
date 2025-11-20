@@ -1,64 +1,49 @@
+body {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: Arial, sans-serif;
+}
+
 .page-header {
-    background-color: #C25100;
+    background-color: #1F1F1F;
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
+    border-bottom: 2px solid #C25100;
 }
 
-.page-header h1,
-.page-header h1 a,
-.page-header h1 a:visited,
-.page-header h1 a:active {
-    color: #ffffff;
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #C25100;
     font-size: 36pt;
     text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Lobster', cursive;
-}
-
-.date {
-    color: #828282;
-}
-
-.save {
-    float: right;
-}
-
-.task-form textarea,
-.task-form input {
-    width: 100%;
-}
-
-.top-menu,
-.top-menu:hover,
-.top-menu:visited {
-    color: #ffffff;
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #C25100;
     float: right;
     font-size: 26pt;
     margin-right: 20px;
 }
 
 .task {
-    margin-bottom: 70px;
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px #000000;
 }
 
-.task h2 a,
-.task h2 a:visited {
-    color: #000000;
+.task h2 a, .task h2 a:visited {
+    color: #FFA500;
+    text-decoration: none;
 }
 
-.task > .date,
-.task > .actions {
+.task > .date, .task > .actions {
     float: right;
+    color: #B0B0B0;
 }
 
-.btn-default,
-.btn-default:visited {
+.btn-default, .btn-default:visited {
     color: #C25100;
     background: none;
     border-color: #C25100;
@@ -67,4 +52,22 @@ h4 {
 .btn-default:hover {
     color: #FFFFFF;
     background-color: #C25100;
+}
+
+.task-form textarea, .task-form input {
+    width: 100%;
+    background-color: #2B2B2B;
+    color: #E0E0E0;
+    border: 1px solid #555;
+}
+
+.save {
+    float: right;
+}
+
+.task.done {
+    background-color: #2E2E2E;
+    opacity: 0.7;
+    text-decoration: line-through;
+    margin-bottom: 30px;  /* assure que les tâches barrées ont aussi l'espacement */
 }

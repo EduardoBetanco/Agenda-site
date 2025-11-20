@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Supprimer la tâche : "{{ task.title }}" ?</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    <a href="{% url 'task_detail' pk=task.pk %}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endblock %}

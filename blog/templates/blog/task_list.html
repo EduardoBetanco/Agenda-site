@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% for task in tasks %}
+<article class="task {% if task.status %}done{% endif %}">
+    <time class="date"> {{ task.due_date }} </time>
+    <h2><a href="{% url 'task_detail' pk=task.pk %}">{{ task.title }}</a></h2>
+    <p>{{ task.description|linebreaksbr }}</p>
+    <p><strong>Statut :</strong> {% if task.status %} Fait {% else %} Non fait {% endif %}</p>
+</article>
+{% endfor %}
+{% endblock %}
