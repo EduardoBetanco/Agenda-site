@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Description de l'agenda par l'IA</h2>
+
+{% if response_text %}
+<p>{{ response_text }}</p>
+{% else %}
+<p>Aucune tâche n'a été décrite.</p>
+{% endif %}
+{% endblock %}
