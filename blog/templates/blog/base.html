@@ -17,6 +17,9 @@
                     <a href="{% url 'task_new' %}" class="top-menu">
                         {% include './icons/file-earmark-plus.svg' %}
                     </a>
+                    <a href="{% url 'logout' %}" class="top-menu">Déconnexion</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="top-menu">Connexion</a>
                 {% endif %}
                 <h1><a href="/">Agenda Eduardo</a></h1>
             </div>

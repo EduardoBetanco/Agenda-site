@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block content %}
     <article class="task">
@@ -9,6 +10,7 @@
 
                 <button id="toggle-btn"
                         data-task-id="{{ task.pk }}"
+                        data-csrf="{{ csrf_token }}"
                         class="btn {% if task.status %}btn-success{% else %}btn-warning{% endif %}">
                     {% if task.status %}Marquer non fait{% else %} Marquer fait{% endif %}
                 </button>
@@ -27,62 +29,6 @@
 
     </article>
 
-    <script>
-
-    document.body.onload = function () {
-
-        var button = document.getElementById("toggle-btn");
-        var statusParagraph = document.getElementById("task-status");
-
-        button.onclick = function () {
-
-            var taskId = button.getAttribute("data-task-id");
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/task/" + taskId + "/toggle-ajax/", true);
-
-            xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
-
-            xhr.onreadystatechange = function () {
-
-                if (xhr.readyState === 4 && xhr.status === 200) {
-
-                    var data = JSON.parse(xhr.responseText);
-
-                    if (data.status) {
-                        button.textContent = "Marquer non fait";
-
-                    } else {
-                        button.textContent = "Marquer fait";
-
-                    }
-
-                    statusParagraph.textContent = "";
-
-                    var strong = document.createElement("strong");
-                    strong.appendChild(document.createTextNode("Statut : "));
-                    statusParagraph.appendChild(strong);
-
-                    var text;
-
-                    if (data.status) {
-
-                        text = document.createTextNode("Fait");
-                    } else {
-
-                        text = document.createTextNode("Non fait");
-                    }
-
-                    statusParagraph.appendChild(text);
-                }
-            };
-
-            xhr.send();
-        };
-    };
-
-</script>
-
-
+    <script src="{% static 'blog/task_detail.js' %}"></script>
 
 {% endblock %}

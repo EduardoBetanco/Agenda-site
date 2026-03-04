@@ -9,5 +9,7 @@ urlpatterns = [
     path('task/<int:pk>/delete/', views.task_delete, name='task_delete'),
     path('task/<int:pk>/toggle_done/', views.task_toggle_done, name='task_toggle_done'),
     path('task/<int:pk>/toggle-ajax/', views.task_toggle_done_ajax, name='task_toggle_done_ajax'),
+    path("login/", views.c_login, name="login"),
+    path("logout/", views.c_logout, name="logout"),
 
 ]
